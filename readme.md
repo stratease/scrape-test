@@ -12,17 +12,23 @@ Once complete, provide the link to the public repository
 
 **Solution #1**
 
-This branch provides the solution to task #1.
+This is in the `master` branch
+
+**Solution #2**
+
+This branch provides the solution to task #2
 
 - Tested in node v12
 - Business logic is in the `app.js` file
 - Install dependencies with `npm install`
-- Run `npm run start` and the script will fetch 3 websites and store them in the local filesystem. The files should be relative to the cwd
+- Run `npm run start` and the express server will listen on port `1234`
+- To fetch a url, simply curl to the `/proxy` endpoint with a `url` query param with the requested website.
 
+Example:
 
-**Solution #2**
-
-This is in the `solution-2` branch
+`curl -G --data-urlencode 'url=https://www.google.com' 127.0.0.1:1234/proxy`
+`
+`
 
 **Solution #3**
 

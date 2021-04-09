@@ -1,11 +1,25 @@
 /**
  * Created by edaniels on 4/7/2021.
  */
-var axios = require('axios');
-var fs = require('fs');
-var downloadFile = require('./src/downloadFile');
+var express = require('express');
+var fetchUrl = require('./src/fetchUrl');
+const app = express();
 
 
-downloadFile('https://www.nytimes.com/', './nytimes.html');
-downloadFile('https://www.identityiq.com/', './idiq.html');
-downloadFile('https://web.archive.org/web/20130302220424/https://www.identityiq.com/', './idiq-archive.html');
+
+app.get('/proxy', async (req, res) => {
+    if(req.query.url) {
+        const content = await fetchUrl(req.query.url);
+
+        return res.send(content);
+    }
+
+    return res.send('Please send a `url` query param to proxy a website');
+});
+
+
+
+app.listen(1234, () => {
+        console.log(`App listening on port 1234! /proxy is ready for requests.`);
+    }
+);
