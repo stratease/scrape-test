@@ -16,20 +16,16 @@ This is in the `master` branch
 
 **Solution #2**
 
-This branch provides the solution to task #2
-
-- Tested in node v12
-- Business logic is in the `app.js` file
-- Install dependencies with `npm install`
-- Run `npm run start` and the express server will listen on port `1234`
-- To fetch a url, simply curl to the `/proxy` endpoint with a `url` query param with the requested website.
-
-Example:
-
-`curl -G --data-urlencode 'url=https://www.google.com' 127.0.0.1:1234/proxy`
-`
-`
+This is in the `solution-2` branch
 
 **Solution #3**
 
-This is in the `solution-3` branch
+This branch provides the solution to task #3
+
+- Tested in node v12
+- Business logic is in the `App.js` and `Container.js` file
+- Install dependencies with `npm install`
+- You will need two concurrent node processes. One for the React app on the frontend, and one for the API service.
+    - Run `npm run server` and the express server will listen on port `1234`
+    - Run `npm run start` and the react app will run on port `3000`. This should open a tab in the browser with the interface
+- To fetch the pages, simply enter the urls delimited by newlines in the text area and click "Fetch"

@@ -6,8 +6,11 @@ var fetchUrl = require('./src/fetchUrl');
 const app = express();
 
 
-
 app.get('/proxy', async (req, res) => {
+    // cors
+    res.set({
+        'Access-Control-Allow-Origin':'*'
+    });
     if(req.query.url) {
         const content = await fetchUrl(req.query.url);
 
